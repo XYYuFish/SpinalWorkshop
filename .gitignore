@@ -1,8 +1,11 @@
 *.class
 *.log
 *.bak
+*.md
 
-# sbt specific
+# ScalaBuild specific
+.bloop
+.metals
 .cache/
 .history/
 .lib/
@@ -28,6 +31,7 @@ bin/
 .cache-main
 
 #User
+/docs
 /rtl/*.vhd
 /rtl/*.v
 !/rtl/Ram_1w_1r_2c.v

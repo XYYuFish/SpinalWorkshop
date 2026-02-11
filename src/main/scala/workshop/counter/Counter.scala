@@ -10,4 +10,19 @@ case class Counter(width: Int) extends Component {
   }
 
   // TODO define the logic
+  val cnt = Reg(UInt(width bits)) init 0
+  when(io.clear) {
+    cnt := 0
+  } otherwise {
+    cnt := cnt + 1
+  }
+
+  // io.full  := cnt === (1 << width) - 1
+  /* 
+  1. := has much lower priority as an assignment operator
+  2. === will return spinal.core.Bool
+   */
+
+  io.value := cnt
+  io.full  := cnt.andR
 }
